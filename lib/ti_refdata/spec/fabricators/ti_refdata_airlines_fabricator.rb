@@ -11,6 +11,8 @@ Fabricator(:airline, class_name: TiRefdata::Airline) do
   type_code ''
   page_rank 0.8
   carrier_unique_id 1
+  persistent_id 'air-alitalia'
+  version 1
 end
 
 Fabricator(:airline_nil_values, class_name: TiRefdata::Airline) do
@@ -24,6 +26,8 @@ Fabricator(:airline_nil_values, class_name: TiRefdata::Airline) do
   type_code nil
   page_rank 1.0
   carrier_unique_id 2
+  persistent_id 'air-ryanair'
+  version 1
 end
 
 Fabricator(:dummy_airline, class_name: TiRefdata::Airline) do
@@ -37,6 +41,8 @@ Fabricator(:dummy_airline, class_name: TiRefdata::Airline) do
   type_code 'D'
   page_rank 0.3
   carrier_unique_id 7
+  persistent_id 'air-amadeus-seven-x'
+  version 1
 end
 
 Fabricator(:gds, class_name: TiRefdata::Airline) do
@@ -50,6 +56,8 @@ Fabricator(:gds, class_name: TiRefdata::Airline) do
   type_code 'G'
   page_rank 1
   carrier_unique_id 3
+  persistent_id 'gds-amadeus'
+  version 1
 end
 
 Fabricator(:cargo_airline, class_name: TiRefdata::Airline) do

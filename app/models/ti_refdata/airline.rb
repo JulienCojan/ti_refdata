@@ -5,7 +5,8 @@ module TiRefdata
     attr_accessible :unified_code, :icao_code, :iata_code, :numeric_code,
                     :name, :name_normalized, :name2_normalized,
                     :alliance_code, :alliance_status,
-                    :type_code, :page_rank, :carrier_unique_id
+                    :type_code, :page_rank, :carrier_unique_id,
+                    :persistent_id, :version
 
     def self.with_name
       where('name IS NOT NULL')

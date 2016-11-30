@@ -6,7 +6,8 @@ describe TiRefdata::AirlinesController do
   let!(:user) { Fabricate(:user) }
   let!(:airline) do
     Fabricate(:dummy_airline)
-    Fabricate(:airline, unified_code: '6X', iata_code: '6X', name: 'Amadeus Six', type_code: '', carrier_unique_id: 6)
+    Fabricate(:airline, unified_code: '6X', iata_code: '6X', name: 'Amadeus Six', type_code: '',
+              carrier_unique_id: 6, persistent_id: 'air-amadeus-six-x', version: 2)
   end
 
   describe 'GET index with filter' do
@@ -20,6 +21,8 @@ describe TiRefdata::AirlinesController do
       expect(first_json_at '$.airlines[0].name').to eq('Amadeus Six')
       expect(first_json_at '$.airlines[0].type_code').to eq('')
       expect(first_json_at '$.airlines[0].carrier_unique_id').to eq(6)
+      expect(first_json_at '$.airlines[0].persistent_id').to eq('air-amadeus-six-x')
+      expect(first_json_at '$.airlines[0].version').to eq(2)
       get :index, code: '7X'
       expect(response.status).to eq(200)
       expect(first_json_at '$.airlines').to have(1).airline
@@ -28,6 +31,8 @@ describe TiRefdata::AirlinesController do
       expect(first_json_at '$.airlines[0].name').to eq('Amadeus Seven')
       expect(first_json_at '$.airlines[0].type_code').to eq('D')
       expect(first_json_at '$.airlines[0].carrier_unique_id').to eq(7)
+      expect(first_json_at '$.airlines[0].persistent_id').to eq('air-amadeus-seven-x')
+      expect(first_json_at '$.airlines[0].version').to eq(1)
     end
 
     it 'returns our airlines when authenticated' do
